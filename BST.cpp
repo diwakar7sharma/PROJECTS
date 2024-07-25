@@ -31,6 +31,24 @@ void inorder(Node *root){
     inorder(root->right);
 }
 
+void preorder(Node *root){
+    if(root==NULL){
+        return;
+    }
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void postorder(Node *root){
+    if(root==NULL){
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+}
+
 Node* searchBST(Node *root,int key){
     if(root==NULL){
         return NULL;
@@ -110,8 +128,8 @@ int main(){
     }
     i=1;
     while(i!=0){
-        cout<<"Select Operations to Perform : "<<endl;
-        cout<<"1)Search\n2)Delete\n3)InOrder Form\n0)Exit "<<endl;
+        cout<<"\nSelect Operations to Perform : "<<endl;
+        cout<<"1)Search\n2)Delete\n3)InOrder Form\n4)PreOrder Form\n5)PostOrder Form\n0)Exit "<<endl;
         cout<<"Enter your choice : ";
         int choice;
         cin>>choice;
@@ -133,8 +151,18 @@ int main(){
             cout<<endl;
             break;
         case 3:
-            cout<<"Inorder Form : ";
+            cout<<"InOrder Form : ";
             inorder(root);
+            cout<<"\n"<<endl;
+            break;
+        case 4:
+            cout<<"PreOrder Form : ";
+            preorder(root);
+            cout<<"\n"<<endl;
+            break;
+        case 5:
+            cout<<"PostOrder Form : ";
+            postorder(root);
             cout<<"\n"<<endl;
             break;
         default:
